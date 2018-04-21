@@ -1,6 +1,9 @@
 <?php
 
 require_once('vendor/autoload.php');
+require_once('config/pdo_db.php');
+require_once('lib/pdo_dbh.php');
+require_once('models/Customer.php');
 
 //Using server test key
 \Stripe\Stripe::setApiKey('sk_test_8S1f3nXnMyECSzn9hRZpxAZZ');
@@ -12,8 +15,6 @@ $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $email = $_POST['email'];
 $token = $_POST['stripeToken'];
-
-echo $token;
 
 //Create customer in stripe
 $customer = \Stripe\Customer::create(array(
@@ -28,6 +29,18 @@ $charge = \Stripe\Charge::create(array(
     "description" => "Intro To React Course",
     "customer" => $customer->id
 ));
+
+//Generate customer data
+$customerData = [
+  'id' => $charge->customer,
+  'first_name' => $first_name,
+  'last_name' => $last_name,
+  'email' => $email
+];
+
+//Add customer data to database
+$customer = new Customer();
+$customer->addCustomer($customerData);
 
 //Charge output
 //print_r($charge);
