@@ -4,9 +4,9 @@
   * Database Handler
   */
 class DBH{
-    protected $host = DB_HOST;
-	protected $user = DB_USER;
-	protected $pass = DB_PASS;
+    private $host = DB_HOST;
+	private $user = DB_USER;
+	private $pass = DB_PASS;
 	private $dbname = DB_NAME;
 	
 	private $dbh;
