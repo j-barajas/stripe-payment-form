@@ -42,6 +42,20 @@ $customerData = [
 $customer = new Customer();
 $customer->addCustomer($customerData);
 
+//Generate transaction data
+$transactionData = [
+    'id' => $charge->id,
+    'customer_id' => $charge->customer,
+    'product' => $charge->description,
+    'amount' => $charge->amount,
+    'currency' => $charge->currency,
+    'status' => $charge->status,
+  ];
+  
+  //Add transaction data to database
+  $transaction = new Transaction();
+  $customer->addTransaction($transactionData);
+
 //Charge output
 //print_r($charge);
 
