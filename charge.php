@@ -4,6 +4,7 @@ require_once('vendor/autoload.php');
 require_once('config/pdo_db.php');
 require_once('lib/pdo_dbh.php');
 require_once('models/Customer.php');
+require_once('models/Transaction.php');
 
 //Using server test key
 \Stripe\Stripe::setApiKey('sk_test_8S1f3nXnMyECSzn9hRZpxAZZ');
@@ -54,7 +55,7 @@ $transactionData = [
   
   //Add transaction data to database
   $transaction = new Transaction();
-  $customer->addTransaction($transactionData);
+  $transaction->addTransaction($transactionData);
 
 //Charge output
 //print_r($charge);
