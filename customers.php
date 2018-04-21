@@ -22,6 +22,11 @@ $customers = $customer->getCustomers();
 </head>
 <body>
     <div class="container mt-4">
+        <div class="btn-group" role="group">
+            <a href="customers.php" class="btn btn-primary">Customers</a>
+            <a href="transactions.php" class="btn btn-secondary">Transactions</a>
+        </div>
+        <hr>
         <h2>Customers</h2>
         <table class="table table-striped">
             <thead>
@@ -40,12 +45,10 @@ $customers = $customer->getCustomers();
                     <td><?php echo($customer->email); ?></td>
                     <td><?php echo($customer->created_at); ?></td>
                 </tr>
-                <tr>
-                    
-                </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <p><a href="index.php">Pay Page</a></p>
     </div>
 </body>
 </html>
