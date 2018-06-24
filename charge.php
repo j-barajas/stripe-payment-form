@@ -7,7 +7,7 @@ require_once('models/Customer.php');
 require_once('models/Transaction.php');
 
 //Using server test key
-\Stripe\Stripe::setApiKey('sk_test_8S1f3nXnMyECSzn9hRZpxAZZ');
+\Stripe\Stripe::setApiKey('sk_test_h8okKIWnnq4C4MYbUJPkdcKW');
 
 //Sanitize POSTS
 $_POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
